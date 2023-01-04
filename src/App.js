@@ -1,24 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import Register from "./pages/Register";
+import React from "react";
+import Login from "./pages/Login";
+import Home from "./pages/Home";
+import Landingpage from "./pages/Landingpage";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Topbar from "./component/Topbar";
+import Test from "./component/Test";
+// import Coba from "./pages/Coba";
+// import Coba2 from "./pages/Coba2";
+
+import Chat from "./pages/Chat";
+import Class from "./pages/Class";
+import Group from "./pages/Group";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route>
+          <Route path="/" element={<Landingpage />} />
+          <Route path="login" element={<Login />} />
+          {/* <Route path="home" element={<Home />} /> */}
+          <Route path="register" element={<Register />} />
+        </Route>
+        <Route element={<Test />}>
+          <Route path="chat" element={<Chat />} />
+          <Route path="class" element={<Class />} />
+          <Route path="group" element={<Group />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
